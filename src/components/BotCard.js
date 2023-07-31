@@ -9,10 +9,18 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, onDelete, onAddToArmy }) {
+function BotCard({ bot, onDelete, onAddToArmy,onRemoveFromArmy, isInArmy }) {
   const handleAddToArmy = () => {
     onAddToArmy(bot);
   };
+  const handleRemoveFromArmy = () =>{
+    onRemoveFromArmy(bot);
+  }
+
+  const buttonText = isInArmy ? "Remove from Army" : "Add to Army";
+  const buttonClass = isInArmy ? "ui mini red button" : "ui mini green button";
+  const buttonClick = isInArmy ? handleRemoveFromArmy : handleAddToArmy;
+
 
   return (
     <div className="ui column">
@@ -48,10 +56,10 @@ function BotCard({ bot, onDelete, onAddToArmy }) {
                 x
               </button>
               <button
-                className="ui mini green button"
-                onClick={handleAddToArmy}
+                className={buttonClass}
+                onClick={buttonClick}
               >
-                Add to Army
+                {buttonText}
               </button>
             </div>
           </span>

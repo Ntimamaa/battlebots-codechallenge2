@@ -2,10 +2,6 @@ import React from "react";
 import BotCard from "./BotCard";
 
 function YourBotArmy({ selectedBots, setSelectedBots }) {
-  const addToBotArmy = (bot) => {
-    setSelectedBots(prevBots => [...prevBots, bot]);
-  };
-
   const removeFromBotArmy = (botId) => {
     setSelectedBots(prevBots => prevBots.filter(bot => bot.id !== botId));
   };
@@ -22,7 +18,8 @@ function YourBotArmy({ selectedBots, setSelectedBots }) {
               key={bot.id}
               bot={bot}
               onDelete={() => removeFromBotArmy(bot.id)}
-              onAddToArmy={() => addToBotArmy(bot)}
+              isInArmy={true}
+              onRemoveFromArmy={()=>removeFromBotArmy(bot.id)}
             />
           ))}
         </div>
