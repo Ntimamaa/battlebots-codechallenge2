@@ -10,7 +10,7 @@ function YourBotArmy({ selectedBots, setSelectedBots }) {
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
         <div className="row bot-army-row">
-          Your Bot Army
+          Click on a bot to add to army
         </div>
         <div className="row bot-army-row">
           {selectedBots.map(bot => (

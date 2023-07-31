@@ -26,7 +26,7 @@ function BotCard({ bot, onDelete, onAddToArmy,onRemoveFromArmy, isInArmy }) {
     <div className="ui column">
       <div className="ui card" key={bot.id}>
         <div className="image">
-          <img alt="oh no!" src={bot.avatar_url} />
+          <img onClick={buttonClick} alt="oh no!" src={bot.avatar_url} />
         </div>
         <div className="content">
           <div className="header">
